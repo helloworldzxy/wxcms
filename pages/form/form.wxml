@@ -1,0 +1,54 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <include src="username.wxml" />
+
+  <view class="section section_gap">
+    <view class="section__title">来源渠道</view>
+    <radio-group name="from">
+      <label><radio value="BaiduSearching"/>百度搜索</label>
+      <label><radio value="FriendsRecommendation"/>朋友介绍</label>
+      <label><radio value="OfficialAccountsPush"/>公众号推送</label>
+    </radio-group>
+  </view>
+
+  <view class="section section_gap">
+    <view class="section__title">关注的产品</view>
+    <checkbox-group name="product">
+      <label><checkbox value="weimall"/>微商城</label>
+      <label><checkbox value="weisns"/>微社区</label>
+    </checkbox-group>
+  </view>
+
+  <view class="section">
+    <view class="section__title">地区选择器</view>
+    <picker bindchange="bindPickerChange" value="{{area}}" range="{{array}}">
+        <view class="picker">
+        当前选择：{{array[area]}}
+        </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <view class="section__title">反馈时间</view>
+    <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+        <view class="picker">
+        当前选择: {{time}}
+        </view>
+    </picker>
+  </view>
+
+  <view class="section section_gap">
+    <text class="section__title">请给我们打分</text>
+    <view class="body-view">
+        <slider bindchange="bindSliderchange" min="0" max="100" show-value value="{{score}}" />
+    </view>
+  </view>
+
+  <view class="section section_gap">
+    <view class="section__title">您是前端开发人员吗</view>
+    <switch name="switch"/>
+  </view>
+
+  <view class="btn-area">
+    <button formType="submit">提交</button>
+  </view>
+</form>
